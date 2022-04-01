@@ -1,0 +1,2 @@
+#!/bin/bash
+mkdir mydir -m =751
