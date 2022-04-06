@@ -1,1 +1,1 @@
-describing what each shell is doing 
+describing what each script is doing
