@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# prints best school 10 times
+
+i=1
+until [ $i -gt 10 ];
+do
+	echo Best School
+	i=$((i+1))
+done
