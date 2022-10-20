@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#bash script to generate ssh key pair, number of bits i the created key is 4096
+ssh-keygen -b 4096 -f school -N betty

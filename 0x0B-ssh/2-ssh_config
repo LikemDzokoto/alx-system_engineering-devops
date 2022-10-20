@@ -1,0 +1,3 @@
+# SSH client configuration to refuse to authenticate using a password
+Include ~/.ssh/school
+PasswordAuthentication=no
