@@ -9,11 +9,11 @@ show_records()
 	
     dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5} var="$subdomain"
 }
-if [-z $2]; then 
-	for subdomain 	in  "www" "lb-01" "web-01" "web-02"
-	do
-	show_records "$1" "subdomain"
-	done 
-
-fi
-
+ 
+for subdomain 	in  "www" "lb-01" "web-01" "web-02"
+do
+	if [-z "$2"] || ["$2" =="$subdomain"];
+	then
+	show_records "$1" "$subdomain"
+	fi
+done 
