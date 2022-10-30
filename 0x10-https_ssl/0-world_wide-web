@@ -6,13 +6,15 @@ show_records()
 	#define arguments  of domains and subdomains 
 	domain="$1"
 	subdomain="$2"
-`	dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$subdomain"
+	dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$subdomain"
 }
 
-for subdomain in "www" "lb-01" "web-01" "web-02"
-do
-    	if [ -z "$2" ] || [ "$2" == "$subdomain" ] ;
-    	then
-		show_records "$1" "$subdomain"
-    	fi
-done
+if [ "$#" == 1 ]
+then
+  show_records "$1" "www"
+  show_records  "$1" "lb-01"
+  show_records "$1" "web-01"
+  show_records "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+  show_records "$1" "$2"
